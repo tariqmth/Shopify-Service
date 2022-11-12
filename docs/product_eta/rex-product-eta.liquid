@@ -1,0 +1,33 @@
+{% comment %}
+@name: Retail Express Product ETA
+@version: 1.0.0
+{% endcomment %}
+
+{% if template == 'product' %}
+
+  <!-- Scripts -->
+
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  {{ 'rex-product-eta.js' | asset_url | script_tag }}
+  {{ 'rex-product-eta.css' | asset_url | stylesheet_tag }}
+
+  <!-- Inline scripts -->
+	
+  {% for tag in product.tags %}
+  	{% if tag == 'PREORDER' and product.selected_or_first_available_variant.inventory_policy == 'continue' %}
+
+      <script type="text/javascript">
+        function initETA(sku) {
+          window.eta = new ProductETA(sku);
+        } 
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+          initETA('{{ product.selected_or_first_available_variant.sku }}');      
+        });
+
+      </script>
+
+	{%endif %}
+  {% endfor %}
+
+{% endif %}

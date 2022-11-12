@@ -1,0 +1,36 @@
+.log-entry {
+    &__message {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    &__text {
+        line-height: 38px;
+        span {
+            line-height: $line-height-base;
+        }
+    }
+    &__details {
+        white-space: pre-line;
+    }
+    &__level {
+        &--warning, &--notice {
+            color: #ff9000;
+        }
+        &--error, &--critical, &--alert, &--emergency {
+            color: #e80000;
+        }
+    }
+    &__history-unique-id {
+        @include media-breakpoint-only(xl) {
+            padding-left: 8px;
+            padding-right: 8px;
+            text-align: center;
+        }
+    }
+}
+
+.timezone-checkbox {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

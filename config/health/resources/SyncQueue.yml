@@ -1,0 +1,10 @@
+name: SyncQueue
+abbreviation: syncqueue
+checker: App\Models\HealthChecker\SyncQueueChecker
+error_message: "Queue system is not working properly."
+column_size: 3
+targets:
+  - default:
+      cache_instance: cache
+      notify: true
+      connection: "database_sync"

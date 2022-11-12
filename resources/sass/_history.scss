@@ -1,0 +1,144 @@
+.table {
+    td {
+        vertical-align: middle;
+    }
+}
+
+.status-cell {
+    &:before {
+        vertical-align: middle;
+    }
+
+    &--queued {
+        &:before {
+            content: "🕓 ";
+        }
+        @include media-breakpoint-down(md) {
+            background-color: #ededed;
+        }
+    }
+
+    &--processing {
+        &:before {
+            content: "🤔 ";
+        }
+        @include media-breakpoint-down(md) {
+            background-color: #ffe57f;
+        }
+    }
+
+    &--failed {
+        &:before {
+            content: "❌ ";
+        }
+        @include media-breakpoint-down(md) {
+            background-color: #d83651;
+        }
+    }
+
+    &--complete {
+        &:before {
+            content: "✅ ";
+        }
+        @include media-breakpoint-down(md) {
+            background-color: #36d88c;
+        }
+    }
+}
+
+.history-table {
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    @include media-breakpoint-down(md) {
+        overflow: visible;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+    }
+    @include media-breakpoint-only(lg) {
+        font-size: 0.8rem;
+    }
+
+    tbody {
+        @include media-breakpoint-down(md) {
+            display: block;
+            overflow: visible;
+        }
+    }
+
+    thead {
+        border-top: none;
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    tr {
+        @include media-breakpoint-down(md) {
+            display: block;
+            background: white;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            border-radius: $border-radius;
+        }
+    }
+
+    th {
+        border-top-style: none;
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+        @include media-breakpoint-only(lg) {
+            padding: 0.5rem 0.2rem;
+        }
+    }
+
+    td {
+        @include media-breakpoint-only(lg) {
+            padding: 0.5rem 0.2rem;
+        }
+        &:first-child {
+            @include media-breakpoint-down(md) {
+                border-top-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            display: block;
+            &:before {
+                content: attr(data-th)": ";
+                font-weight: bold;
+                width: 50%;
+                display: inline-block;
+            }
+        }
+    }
+
+    .history-id-cell {
+        @include media-breakpoint-down(md) {
+            background-color: transparent !important;
+            color: #000 !important;
+        }
+    }
+}
+
+.search-button {
+    width: 100%;
+    @include media-breakpoint-up(sm) {
+        width: auto;
+    }
+}
+
+.pagination {
+    .page-link {
+        @include media-breakpoint-down(sm) {
+            padding: 0.5rem;
+        }
+    }
+}
+
+.large-card {
+    .card-body {
+        font-size: 2rem;
+    }
+}

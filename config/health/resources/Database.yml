@@ -1,0 +1,12 @@
+name: Database
+abbreviation: db
+checker: PragmaRX\Health\Checkers\Database
+notify: true
+column_size: 3
+targets:
+  - "query speed":
+      type: "raw_query"
+      connection: "default"
+      query: "select name from clients"
+      maximum_time: 1
+      error_message: "Query took %sms when it should have last at most %sms"
